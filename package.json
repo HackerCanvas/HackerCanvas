@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Parker9706/test-project.git"
+    "url": "https://github.com/HackerCanvas/HackerCanvas.git"
   },
   "author": "Parker Hutcheson (pdhutcheson@gmail.com)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Parker9706/test-project/issues"
+    "url": "https://github.com/HackerCanvas/HackerCanvas/issues"
   },
-  "homepage": "https://github.com/Parker9706/test-project#readme",
+  "homepage": "https://github.com/HackerCanvas/HackerCanvas#readme",
   "dependencies": {
     "nodemon": "^2.0.15",
     "react": "^17.0.2",
