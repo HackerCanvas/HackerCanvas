@@ -3,6 +3,6 @@ import Intro from './Intro.jsx';
 
 export default function Homepage() {
   return(
-    <Intro />
+    <h2>Hello</h2>
   )
 }
