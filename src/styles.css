@@ -1,0 +1,58 @@
+* {
+}
+
+#logo {
+  font-family: 'Roboto', sans-serif;
+  font-size: 72px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10%;
+}
+
+#logo2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 72px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 7%;
+}
+
+#login-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  margin-top: 2%;
+  text-align: center;
+}
+
+#login-sub-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  margin-top: 10%;
+  text-align: center;
+}
+
+#login-divider {
+  width: 30%;
+}
+
+#divider-area {
+  display: flex;
+  justify-content: center;
+}
+
+#login-form {
+  margin-top: 3%;
+  display: flex;
+  justify-content: center;
+}
+
+#log-btn {
+  width: 120px;
+  text-align: center;
+}
+
+#log-btn-area {
+  text-align: center;
+}

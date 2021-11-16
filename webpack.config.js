@@ -1,5 +1,6 @@
 // Webpack uses this to work with directories
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const path = require('path');
 
@@ -8,7 +9,7 @@ const path = require('path');
 module.exports = {
 
   // Path to your entry point. From this file Webpack will begin its work
-  entry: './src/App.jsx',
+  entry: './src/Index.jsx',
 
   // Path and filename of your result bundle.
   // Webpack will bundle all JavaScript into this file
@@ -20,6 +21,7 @@ module.exports = {
   devServer: {
     port: 'auto',
   },
+  plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
@@ -33,28 +35,8 @@ module.exports = {
         }
       },
       {
-        // Apply rule for .sass, .scss or .css files
-        test: /\.(sa|sc|c)ss$/,
-        // Set loaders to transform files.
-        // Loaders are applying from right to left(!)
-        // The first loader will be applied after others
-        use: [
-               {
-                 // This loader resolves url() and @imports inside CSS
-                 loader: "css-loader",
-               },
-               {
-                 // Then we apply postCSS fixes like autoprefixer and minifying
-                 loader: "postcss-loader"
-               },
-               {
-                 // First we transform SASS to standard CSS
-                 loader: "sass-loader",
-                 options: {
-                   implementation: require("sass")
-                 }
-               }
-             ]
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       },
       {
       test: /\.(png|jpe?g|gif|svg)$/,
