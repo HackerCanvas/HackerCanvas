@@ -19,6 +19,6 @@ export default function App() {
     //     <Route component={NotFound}/>
     //   </Routes>
     // </BrowserRouter>
-    <Login />
+    <SignUp />
   )
 }
