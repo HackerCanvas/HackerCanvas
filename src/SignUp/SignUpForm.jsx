@@ -16,6 +16,7 @@ const SignUpForm = () => {
     lastName: "",
     username: "",
     password: "",
+    email: "",
     showPassword: false,
   });
 
@@ -49,6 +50,14 @@ const SignUpForm = () => {
         type="lastName"
         onChange={handleInputChange("lastName")}
         value={values.lastName}
+       />
+       <InputLabel htmlFor="standard-adornment-password">
+        Email
+      </InputLabel>
+      <Input
+        type="firstName"
+        onChange={handleInputChange("email")}
+        value={values.email}
        />
     <InputLabel htmlFor="standard-adornment-password">
         Username
