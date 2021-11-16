@@ -17,7 +17,7 @@ import SignUpForm from './SignUpForm.jsx';
 export default function SignUp() {
   return(
     <div id="login">
-      <Typography variant="h2" id="logo">HackerCanvas</Typography>
+      <Typography variant="h2" id="logo2">HackerCanvas</Typography>
       <div id="divider-area">
         <Divider id="login-divider" />
       </div>

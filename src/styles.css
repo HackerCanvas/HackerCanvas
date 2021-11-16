@@ -9,6 +9,14 @@
   margin-top: 10%;
 }
 
+#logo2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 72px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 7%;
+}
+
 #login-text {
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
