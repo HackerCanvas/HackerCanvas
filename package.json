@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
-    "dev": "webpack serve --mode development"
+    "dev": "webpack serve --mode development",
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
@@ -26,8 +27,10 @@
     "@material-ui/icons": "^4.11.2",
     "@mui/material": "^5.1.0",
     "@mui/styled-engine-sc": "^5.1.0",
+    "cookie-parser": "^1.4.6",
     "mui-button": "^1.0.8",
     "nodemon": "^2.0.15",
+    "pg": "^8.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^6.0.2",
