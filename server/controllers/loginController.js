@@ -35,12 +35,32 @@ loginController.verifyUser = (req, res, next) => {
     return next();
   }
 
-  const { password } = req.body;
+  const { username, password } = req.body;
 
   if (password !== res.locals.user.password) {
     delete res.locals.user;
-  }
+  } else {
+    const last_login = new Date();
 
+    const query = {
+      text: `
+        UPDATE users
+        SET last_login = $2,
+        WHERE username = $1;
+      `,
+      params: [username, last_login]
+    };
+
+    db.query(query.text, query.params, (err, dbResponse) => {
+      if (err) {
+        next({
+          log: 'ERROR: loginController.verifyUser',
+          message: { err: err.message }
+        });
+      }
+    });
+  }
+  
   return next();
 };
 
@@ -50,15 +70,17 @@ loginController.createUser = (req, res, next) => {
     return next();
   }
 
-  const { username, password } = req.body;
+  const { username, password, first_name, last_name, email } = req.body;
+
+  const last_login = new Date();
 
   const query = {
     text: `
-      INSERT INTO users ()
-      VALUES ()
+      INSERT INTO users (username, passhash, first_name, last_name, email, last_login)
+      VALUES ($1, $2, $3, $4, $5, $6)
       RETURNING _id;
     `,
-    params: [username, password]
+    params: [username, password, first_name, last_name, email, last_login]
   };
 
   db.query(query.text, query.params, (err, dbResponse) => {
