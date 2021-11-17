@@ -1,21 +1,25 @@
 import React from 'react';
 import { CodeBlock, CopyBlock, dracula } from "react-code-blocks";
+import AceEditor from "react-ace";
+import "ace-builds/src-noconflict/mode-javascript";
+import "ace-builds/src-noconflict/theme-github";
 
-
+function onChange(newValue) {
+  console.log("change", newValue);
+}
 
 export default function Code() {
   return (
-    <div id="outer-block">
-    <CopyBlock
-      id="code-block"
-      text={`console.log('Hello World')`}
-      language={'javascript'}
-      showLineNumbers={true}
-      startingLineNumber={1}
-      theme={dracula}
-      wrapLines={true}
-      width={50}
-    />
+<div id='block'>
+      <div>
+        <AceEditor
+          mode="javascript"
+          theme="github"
+          onChange={onChange}
+          name="UNIQUE_ID_OF_DIV"
+          editorProps={{ $blockScrolling: true }}
+        />
+      </div>
     </div>
   )
 }

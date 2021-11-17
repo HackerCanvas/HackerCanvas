@@ -2,15 +2,27 @@ import React from 'react';
 import AceEditor from "react-ace";
 import { CodeBlock, dracula } from "react-code-blocks";
 import Code from './CodeBlock.jsx';
+import Draw from './Draw.jsx';
+import Stack from '@mui/material/Stack';
 
 
-import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/theme-solarized_dark";
+
+
 
 
 export default function Canvas() {
   return (
-    <Code  />
+    <div>
+      <h2 id='canvas-header'>
+        HackerCanvas
+      </h2>
+      <div id="canvas">
+        <Stack direction="row">
+          <Code  />
+          <Draw />
+        </Stack>
+      </div>
+    </div>
   )
 }
 
@@ -26,11 +38,7 @@ export default function Canvas() {
 //         </h2>
 //       </div>
 //       <div>
-//         <CodeBlock
-//           text={"hello world"}
-//           language={javascript}
-//           showLineNumbers={showLineNumbers}
-//           theme={dracula}
+//         <AceEd
 //         />
 //       </div>
 //     </div>
