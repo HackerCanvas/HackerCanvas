@@ -31,6 +31,7 @@
     "@mui/styled-engine-sc": "^5.1.0",
     "ace-builds": "^1.4.13",
     "cookie-parser": "^1.4.6",
+    "excalidraw": "^0.6.4",
     "mui-button": "^1.0.8",
     "nodemon": "^2.0.15",
     "pg": "^8.7.1",
