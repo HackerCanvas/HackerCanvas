@@ -11,14 +11,12 @@ import {BrowserRouter, Route, Link as RouterLink, Routes} from 'react-router-dom
 
 export default function App() {
   return (
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route exact path="/" element={<Canvas />} />
-    //     <Route exact path="/login" element={<Login />} />
-    //     <Route exact path="/signup" element={<SignUp />} />
-    //     <Route component={NotFound}/>
-    //   </Routes>
-    // </BrowserRouter>
-    <Canvas />
+    <BrowserRouter>
+      <Routes>
+      <Route exact path="/loginpage" element={<Login />} />
+        <Route exact path="/"  element={<Canvas />} />
+        <Route exact path="/signuppage" element={<SignUp />} />
+      </Routes>
+    </BrowserRouter>
   )
 }

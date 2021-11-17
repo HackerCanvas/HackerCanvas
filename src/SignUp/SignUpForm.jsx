@@ -20,6 +20,24 @@ const SignUpForm = () => {
     showPassword: false,
   });
 
+  const onFormSubmit = () => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: values.username,
+        password: values.password,
+        first_name: values.firstName,
+        last_name: values.lastName,
+        email: values.email
+      })
+    }
+    fetch('/login/signup', requestOptions)
+      .then(res => res.json())
+      .then(res => console.log('Res: ', res))
+  }
+
+
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
   };
@@ -86,8 +104,8 @@ const SignUpForm = () => {
         }
       />
       <div id="log-btn-area">
-      <Button variant="outlined" id="log-btn">Sign-Up</Button>
-      </div>
+      <Button onClick={onFormSubmit} variant="outlined" id="log-btn">Sign-Up</Button>
+                                                                                         </div>
       </Stack>
     </div>
   );
