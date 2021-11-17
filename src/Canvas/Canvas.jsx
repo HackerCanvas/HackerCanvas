@@ -4,6 +4,9 @@ import { CodeBlock, dracula } from "react-code-blocks";
 import Code from './CodeBlock.jsx';
 import Draw from './Draw.jsx';
 import Stack from '@mui/material/Stack';
+// import Avatar from '@mui/material/Avatar';
+import { Avatar } from '@mui/material';
+
 
 
 
@@ -13,6 +16,8 @@ import Stack from '@mui/material/Stack';
 export default function Canvas() {
   return (
     <div>
+    {/* In future, implement an avatar with first two characters of first/last name */}
+    {/* <Avatar id="avatar" sx={{ bgcolor: "#37a3f0" }}>PH</Avatar> */}
       <h2 id='canvas-header'>
         HackerCanvas
       </h2>

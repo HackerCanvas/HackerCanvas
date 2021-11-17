@@ -122,3 +122,14 @@ html {
   width: 45%;
   margin-left: 30px;
 }
+
+#avatar {
+  display: flex;
+  position: absolute;
+        top: 12px;
+        right: 20px;
+}
+
+#avatar:hover {
+  opacity: 0.75;
+}
