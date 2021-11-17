@@ -14,6 +14,7 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Link as RouterLink } from 'react-router-dom';
 import SignUpForm from './SignUpForm.jsx';
 
+
 export default function SignUp() {
   return(
     <div id="login">

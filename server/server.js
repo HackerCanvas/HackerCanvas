@@ -24,10 +24,10 @@ app.use('/login', loginRouter);
 
 /* handle client-side react router routes */
 
-// have an array hold our react routes as strings 
+// have an array hold our react routes as strings
 const reactRouterPaths = [];
 
-// have our server (app) check for the react routes and serve our static files 
+// have our server (app) check for the react routes and serve our static files
 app.use(reactRouterPaths, (req, res) => {
   res.sendFile(path.resolve(__dirname, '../dist/index.html'));
   res.sendFile(path.resolve(__dirname, '../dist'));

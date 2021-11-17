@@ -8,6 +8,10 @@ import Input from "@material-ui/core/Input";
 import Stack from '@mui/material/Stack';
 import ListItem from '@mui/material/ListItem';
 import Button from "mui-button";
+import Link from '@mui/material/Link';
+import {BrowserRouter, Route, Link as RouterLink, Routes} from 'react-router-dom';
+import Login from './Login.jsx';
+
 
 
 const LoginForm = () => {
@@ -15,7 +19,24 @@ const LoginForm = () => {
     username: "",
     password: "",
     showPassword: false,
+    loggedIn: false
   });
+
+  const onFormSubmit = () => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: values.username,
+        password: values.password,
+      })
+    }
+    fetch('/login/signin', requestOptions)
+      .then(res => res.json())
+      .then(res => console.log('Res: ', res))
+      .then(values.loggedIn = true)
+  }
+
 
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
@@ -59,9 +80,14 @@ const LoginForm = () => {
         }
       />
       <div id="log-btn-area">
-      <Button variant="outlined" id="log-btn">Log-In</Button>
+      <Button onClick={onFormSubmit} variant="outlined" id="log-btn">Log-In</Button>
+      {/* Test Button Below */}
+      <Link component={RouterLink} to='/loginpage' >
+        <Button>Button</Button>
+      </Link>
       </div>
       </Stack>
+
     </div>
   );
 };

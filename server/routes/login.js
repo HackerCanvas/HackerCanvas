@@ -7,21 +7,20 @@ const cookieController = require('../controllers/cookieController');
 const router = express.Router();
 
 // Handle request to / for logging in a user
-router.post('/', 
+router.post('/signin',
   loginController.getUser,
   loginController.verifyUser,
   cookieController.setCookie,
   (req, res, next) => {
     if (!res.locals.user) {
-      res.status(400).json({ message: 'Could not verify login credentials' });
+      return res.status(400).json({ message: 'Could not verify login credentials' });
     }
-    
-    res.status(200).json({ userID: res.locals.user._id });
+      return res.status(200).json({ userID: res.locals.user._id });
   }
 );
 
 // Handle request to /oauth for logging in a user via oAuth
-router.post('/oauth', 
+router.post('/oauth',
   loginController.verifyUser,
   cookieController.setCookie,
   (req, res, next) => {}
@@ -34,10 +33,10 @@ router.post('/signup',
   cookieController.setCookie,
   (req, res, next) => {
     if (!res.locals.user) {
-      res.status(400).json({ message: 'Failed to create user' });
+      return res.status(400).json({ message: 'Failed to create user' });
     }
 
-    res.status(200).json({ userID: res.locals.user._id });
+    return res.status(200).json({ userID: res.locals.user._id });
   }
 );
 

@@ -69,3 +69,14 @@
   justify-content: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+#code-block {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+#outer-block {
+  width: 45%;
+  margin-left: 30px;
+}
