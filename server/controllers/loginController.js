@@ -5,10 +5,11 @@ const loginController = {};
 
 loginController.getUser = (req, res, next) => {
   const { username } = req.body;
+  console.log('User: ', username);
   // construct a DB query for a username
   const query = {
     text: `
-      SELECT * 
+      SELECT *
       FROM users
       WHERE username = $1;
     `,
@@ -22,10 +23,10 @@ loginController.getUser = (req, res, next) => {
         log: 'ERROR: loginController.getUser',
         message: { err: err.message }
       });
-    } 
+    }
 
     if (dbResponse) res.locals.user = dbResponse.rows[0];
-    
+
     return next();
   })
 };
@@ -37,7 +38,8 @@ loginController.verifyUser = (req, res, next) => {
 
   const { username, password } = req.body;
 
-  if (password !== res.locals.user.password) {
+
+  if (password !== res.locals.user.passhash) {
     delete res.locals.user;
   }
   return next();
@@ -50,7 +52,6 @@ loginController.createUser = (req, res, next) => {
   }
 
   const { username, password, first_name, last_name, email} = req.body;
-
   const query = {
     text: `
       INSERT INTO users (username, passhash, first_name, last_name, email)
@@ -59,7 +60,6 @@ loginController.createUser = (req, res, next) => {
     `,
     params: [username, password, first_name, last_name, email]
   };
-
   db.query(query.text, query.params, (err, dbResponse) => {
     if (err) {
       return next({
@@ -67,8 +67,8 @@ loginController.createUser = (req, res, next) => {
         message: { err: err.message }
       });
     }
-
     res.locals.user = dbResponse.rows[0];
+
     return next();
   });
 };
