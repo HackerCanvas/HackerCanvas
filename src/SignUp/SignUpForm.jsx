@@ -8,9 +8,9 @@ import Input from "@material-ui/core/Input";
 import Stack from '@mui/material/Stack';
 import ListItem from '@mui/material/ListItem';
 import Button from "mui-button";
+import {Link} from 'react-router-dom';
 
-
-const SignUpForm = () => {
+const SignUpForm = (props) => {
   const [values, setValues] = React.useState({
     firstName: "",
     lastName: "",
@@ -34,7 +34,12 @@ const SignUpForm = () => {
     }
     fetch('/login/signup', requestOptions)
       .then(res => res.json())
-      .then(res => console.log('Res: ', res))
+      .then(res => {
+        if (res.userID) {
+          props.authenicator({authorized: true})
+        }
+        console.log('Res: ', res)
+      });
   }
 
 
@@ -104,8 +109,10 @@ const SignUpForm = () => {
         }
       />
       <div id="log-btn-area">
-      <Button onClick={onFormSubmit} variant="outlined" id="log-btn">Sign-Up</Button>
-                                                                                         </div>
+        <Link to='/'>
+          <Button onClick={onFormSubmit} variant="outlined" id="log-btn">Sign-Up</Button>
+        </Link>
+      </div>
       </Stack>
     </div>
   );
