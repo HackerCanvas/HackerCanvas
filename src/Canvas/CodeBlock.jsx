@@ -1,35 +1,28 @@
 import React from 'react';
+import { CodeBlock, CopyBlock, dracula } from "react-code-blocks";
 import AceEditor from "react-ace";
-
 import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/theme-solarized_dark"; 
+import "ace-builds/src-noconflict/theme-github";
+
+function onChange(newValue) {
+  console.log("change", newValue);
+}
 
 export default function Code() {
   function onChange(newValue) {
     console.log("change", newValue);
   }
   return (
-    <div id="outer-block">
-      <AceEditor
-        placeholder="Placeholder Text"
-        mode="javascript"
-        theme="solarized_dark"
-        name="blah2"
-        onChange={onChange}
-        fontSize={14}
-        showPrintMargin={true}
-        showGutter={true}
-        highlightActiveLine={true}
-        value={`Welcome to Hacker Canvas`}
-        setOptions={{
-        enableBasicAutocompletion: false,
-        enableLiveAutocompletion: false,
-        enableSnippets: false,
-        showLineNumbers: true,
-        tabSize: 2,
-        }}
-      />
-           
+<div id='block'>
+      <div>
+        <AceEditor
+          mode="javascript"
+          theme="github"
+          onChange={onChange}
+          name="UNIQUE_ID_OF_DIV"
+          editorProps={{ $blockScrolling: true }}
+        />
+      </div>
     </div>
   )
 }
