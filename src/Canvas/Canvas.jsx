@@ -6,6 +6,8 @@ import Draw from './Draw.jsx';
 import Stack from '@mui/material/Stack';
 // import Avatar from '@mui/material/Avatar';
 import { Avatar } from '@mui/material';
+import Box from '@mui/material/Box';
+
 
 
 
@@ -14,6 +16,8 @@ import { Avatar } from '@mui/material';
 
 
 export default function Canvas() {
+  document.body.style.backgroundColor = "#3f4142"
+
   return (
     <div>
     {/* In future, implement an avatar with first two characters of first/last name */}
