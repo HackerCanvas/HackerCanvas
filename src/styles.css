@@ -1,0 +1,135 @@
+html {
+  /* background-color: rgb(63, 65, 66); */
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.excalidraw-wrapper {
+  height: 500px;
+  width: 80%;
+  margin-top: 0px;
+  margin-left: 50px;
+  margin-right: 50px;
+  border-color: rgb(57, 56, 54);
+  border-width: 100px;
+}
+
+#drawtwo {
+  border-color: rgb(237, 183, 7);
+  border-width: 100px;
+}
+
+#block {
+  height: 600px;
+
+  padding-left: 30px;
+}
+
+
+#logo {
+  font-family: 'Roboto', sans-serif;
+  font-size: 72px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10%;
+}
+
+#canvas-header {
+  font-weight: 300;
+  color:rgb(237, 241, 243);
+  font-size: 72px;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Spartan', sans-serif;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+#logo2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 72px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 7%;
+}
+
+#login-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  margin-top: 2%;
+  text-align: center;
+}
+
+#login-sub-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  margin-top: 10%;
+  text-align: center;
+}
+
+#login-divider {
+  width: 30%;
+}
+
+#divider-area {
+  display: flex;
+  justify-content: center;
+}
+
+#login-form {
+  margin-top: 3%;
+  display: flex;
+  justify-content: center;
+}
+
+#log-btn {
+  width: 120px;
+  text-align: center;
+}
+
+#log-btn-area {
+  text-align: center;
+}
+
+/* #canvas {
+  display: flex;
+  flex-direction: column;
+  height: 635px;
+  width: auto;
+} */
+/*
+.excal {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  width: 40%;
+} */
+
+#canvasHeader{
+  display: flex;
+  justify-content: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* #code-block {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+} */
+
+#outer-block {
+  width: 45%;
+  margin-left: 30px;
+}
+
+#avatar {
+  display: flex;
+  position: absolute;
+        top: 12px;
+        right: 20px;
+}
+
+#avatar:hover {
+  opacity: 0.75;
+}
