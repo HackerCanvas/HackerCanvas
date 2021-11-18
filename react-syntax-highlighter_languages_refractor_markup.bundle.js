@@ -1,0 +1,22 @@
+"use strict";
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(self["webpackChunktest_project"] = self["webpackChunktest_project"] || []).push([["react-syntax-highlighter_languages_refractor_markup"],{
+
+/***/ "./node_modules/refractor/lang/markup.js":
+/*!***********************************************!*\
+  !*** ./node_modules/refractor/lang/markup.js ***!
+  \***********************************************/
+/***/ ((module) => {
+
+eval("\n\nmodule.exports = markup\nmarkup.displayName = 'markup'\nmarkup.aliases = ['xml', 'html', 'mathml', 'svg']\nfunction markup(Prism) {\n  Prism.languages.markup = {\n    comment: /<!--[\\s\\S]*?-->/,\n    prolog: /<\\?[\\s\\S]+?\\?>/,\n    doctype: /<!DOCTYPE[\\s\\S]+?>/i,\n    cdata: /<!\\[CDATA\\[[\\s\\S]*?]]>/i,\n    tag: {\n      pattern: /<\\/?(?!\\d)[^\\s>\\/=$<%]+(?:\\s(?:\\s*[^\\s>\\/=]+(?:\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|[^\\s'\">=]+(?=[\\s>]))|(?=[\\s/>])))+)?\\s*\\/?>/i,\n      greedy: true,\n      inside: {\n        tag: {\n          pattern: /^<\\/?[^\\s>\\/]+/i,\n          inside: {\n            punctuation: /^<\\/?/,\n            namespace: /^[^\\s>\\/:]+:/\n          }\n        },\n        'attr-value': {\n          pattern: /=\\s*(?:\"[^\"]*\"|'[^']*'|[^\\s'\">=]+)/i,\n          inside: {\n            punctuation: [\n              /^=/,\n              {\n                pattern: /^(\\s*)[\"']|[\"']$/,\n                lookbehind: true\n              }\n            ]\n          }\n        },\n        punctuation: /\\/?>/,\n        'attr-name': {\n          pattern: /[^\\s>\\/]+/,\n          inside: {\n            namespace: /^[^\\s>\\/:]+:/\n          }\n        }\n      }\n    },\n    entity: /&#?[\\da-z]{1,8};/i\n  }\n  Prism.languages.markup['tag'].inside['attr-value'].inside['entity'] =\n    Prism.languages.markup['entity'] // Plugin to make entity title show the real entity, idea by Roman Komarov\n  Prism.hooks.add('wrap', function(env) {\n    if (env.type === 'entity') {\n      env.attributes['title'] = env.content.value.replace(/&amp;/, '&')\n    }\n  })\n  Object.defineProperty(Prism.languages.markup.tag, 'addInlined', {\n    /**\n     * Adds an inlined language to markup.\n     *\n     * An example of an inlined language is CSS with `<style>` tags.\n     *\n     * @param {string} tagName The name of the tag that contains the inlined language. This name will be treated as\n     * case insensitive.\n     * @param {string} lang The language key.\n     * @example\n     * addInlined('style', 'css');\n     */\n    value: function addInlined(tagName, lang) {\n      var includedCdataInside = {}\n      includedCdataInside['language-' + lang] = {\n        pattern: /(^<!\\[CDATA\\[)[\\s\\S]+?(?=\\]\\]>$)/i,\n        lookbehind: true,\n        inside: Prism.languages[lang]\n      }\n      includedCdataInside['cdata'] = /^<!\\[CDATA\\[|\\]\\]>$/i\n      var inside = {\n        'included-cdata': {\n          pattern: /<!\\[CDATA\\[[\\s\\S]*?\\]\\]>/i,\n          inside: includedCdataInside\n        }\n      }\n      inside['language-' + lang] = {\n        pattern: /[\\s\\S]+/,\n        inside: Prism.languages[lang]\n      }\n      var def = {}\n      def[tagName] = {\n        pattern: RegExp(\n          /(<__[\\s\\S]*?>)(?:<!\\[CDATA\\[[\\s\\S]*?\\]\\]>\\s*|[\\s\\S])*?(?=<\\/__>)/.source.replace(\n            /__/g,\n            tagName\n          ),\n          'i'\n        ),\n        lookbehind: true,\n        greedy: true,\n        inside: inside\n      }\n      Prism.languages.insertBefore('markup', 'cdata', def)\n    }\n  })\n  Prism.languages.xml = Prism.languages.extend('markup', {})\n  Prism.languages.html = Prism.languages.markup\n  Prism.languages.mathml = Prism.languages.markup\n  Prism.languages.svg = Prism.languages.markup\n}\n\n\n//# sourceURL=webpack://test-project/./node_modules/refractor/lang/markup.js?");
+
+/***/ })
+
+}]);
