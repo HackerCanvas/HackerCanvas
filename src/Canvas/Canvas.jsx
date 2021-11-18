@@ -10,7 +10,7 @@ import "ace-builds/src-noconflict/theme-solarized_dark";
 
 export default function Canvas() {
   return (
-    <Code  />
+    <Code/>
   )
 }
 

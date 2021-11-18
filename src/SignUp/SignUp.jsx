@@ -11,11 +11,12 @@ import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import { Link as RouterLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import SignUpForm from './SignUpForm.jsx';
 
 
-export default function SignUp() {
+export default function SignUp(props) {
+  document.body.style.backgroundColor = '#F7FBFC'
   return(
     <div id="login">
       <Typography variant="h2" id="logo2">HackerCanvas</Typography>
@@ -25,8 +26,12 @@ export default function SignUp() {
       <Typography variant="h4" id="login-text">Sign-Up</Typography>
       <div id="login-form">
       <Stack direction="column">
-      <SignUpForm />
-      <Typography variant="h4" id="login-sub-text">Already have an account? Sign-In</Typography>
+      <SignUpForm authenicator={props.authenicator}/>
+      <Typography variant="h4" id="login-sub-text">Already have an account? 
+        <Link to='/'>
+          Sign-In
+        </Link>
+      </Typography>
       </Stack>
       </div>
     </div>

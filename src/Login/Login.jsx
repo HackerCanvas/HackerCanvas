@@ -12,11 +12,12 @@ import Visibility from "@material-ui/icons/Visibility";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import LoginForm from './Form.jsx';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
-export default function Login() {
+export default function Login(props) {
+  document.body.style.backgroundColor = '#F7FBFC'
   return  (
     <div id="login">
       <Typography variant="h2" id="logo">HackerCanvas</Typography>
@@ -26,8 +27,12 @@ export default function Login() {
       <Typography variant="h4" id="login-text">Login</Typography>
       <div id="login-form">
       <Stack direction="column">
-      <LoginForm />
-      <Typography variant="h4" id="login-sub-text">No account? Sign-Up</Typography>
+      <LoginForm authenicator={props.authenicator}/>
+      <Typography variant="h4" id="login-sub-text">No account? 
+        <Link to='/signuppage'>
+          Sign-Up
+        </Link>
+      </Typography>
       </Stack>
       </div>
     </div>

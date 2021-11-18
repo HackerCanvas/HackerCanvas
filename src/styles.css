@@ -80,3 +80,8 @@
   width: 45%;
   margin-left: 30px;
 }
+
+.excalidraw-wrapper {
+  height: 800px;
+  margin: 50px;
+}

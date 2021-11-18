@@ -14,7 +14,9 @@ import Login from './Login.jsx';
 
 
 
-const LoginForm = () => {
+const LoginForm = (props) => {
+
+  
   const [values, setValues] = React.useState({
     username: "",
     password: "",
@@ -33,8 +35,10 @@ const LoginForm = () => {
     }
     fetch('/login/signin', requestOptions)
       .then(res => res.json())
-      .then(res => console.log('Res: ', res))
-      .then(values.loggedIn = true)
+      .then(res => {
+        if (res.userID) {
+          props.authenicator({authorized: true})
+        }});
   }
 
 
@@ -80,11 +84,7 @@ const LoginForm = () => {
         }
       />
       <div id="log-btn-area">
-      <Button onClick={onFormSubmit} variant="outlined" id="log-btn">Log-In</Button>
-      {/* Test Button Below */}
-      <Link component={RouterLink} to='/loginpage' >
-        <Button>Button</Button>
-      </Link>
+        <Button onClick={onFormSubmit} variant="outlined" id="log-btn">Log-In</Button>
       </div>
       </Stack>
 
