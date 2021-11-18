@@ -9,6 +9,9 @@ function onChange(newValue) {
 }
 
 export default function Code() {
+  function onChange(newValue) {
+    console.log("change", newValue);
+  }
   return (
 <div id='block'>
       <div>
